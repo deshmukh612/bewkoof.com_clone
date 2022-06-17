@@ -10,17 +10,23 @@ import {
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteProductCart } from "../Redux/products/action";
+import { addOrder, deleteProductCart } from "../Redux/products/action";
+import BuyOrder from "../Components/BuyOrder";
 
 const Cart = () => {
   const cart = useSelector((store) => store.ecommerceData.cart);
   const dispatch = useDispatch();
   const removeProduct = (id) => {
-    console.log('going ', id)
+    console.log("going ", id);
     dispatch(deleteProductCart(id));
   };
+
+  const checkOutHandler = () => {
+    dispatch(addOrder(cart))
+  }
+
   return (
-    <Box>
+    <Box >
       <Heading as="h2" size="xl" textAlign="center">
         Cart
       </Heading>
@@ -39,37 +45,30 @@ const Cart = () => {
           );
         })}
 
-      <Button
-        rounded={"none"}
-        w={"full"}
-        mt={8}
-        size={"lg"}
-        py={"7"}
-        bg={useColorModeValue("gray.900", "gray.50")}
-        color={useColorModeValue("white", "gray.900")}
-        textTransform={"uppercase"}
-        _hover={{
-          transform: "translateY(2px)",
-          boxShadow: "lg",
-        }}
-        // onClick={addToCartHandler}
-      >
-        Checkout
-      </Button>
+      <BuyOrder cart={cart} checkOutHandler={checkOutHandler}/>
     </Box>
   );
 };
 
 function CartItem({ id, title, image, description, price, removeProduct }) {
-  
-    return (
-    <Box border={"1px solid red"} ml="200px" rounded="lg" width={"fit-content"} margin="auto">
+  return (
+    <Box
+      border={"1px solid gray"}
+      ml="200px"
+      rounded="lg"
+      width={"fit-content"}
+      margin="auto"
+      marginBottom="2rem"
+      p={4}
+      w="550px"
+    >
       <Stack
         direction={{ base: "column", md: "row" }}
         justifyContent="left"
         alignItems="center"
+
       >
-        <Box height={"300px"} width="300px" border="1px solid blue">
+        <Box height={"300px"} width="300px"  marginTop="3rem">
           <Stack textAlign="left" p={4}>
             <Heading as="h6" size="sm">
               {title}
@@ -80,7 +79,7 @@ function CartItem({ id, title, image, description, price, removeProduct }) {
               fontSize={"2xl"}
               fontWeight={"300"}
             >
-              {price}
+              ₹{price}
             </Text>
             <Button
               varient={"outline"}
@@ -91,11 +90,13 @@ function CartItem({ id, title, image, description, price, removeProduct }) {
             </Button>
           </Stack>
         </Box>
-        <Box height={"300px"} width="150px" border="1px solid green">
+        <Box height={"300px"} width="150px" >
           <Image
             rounded={"lg"}
             height={200}
             width={200}
+            marginTop="3rem"
+            marginRight="1rem"
             objectFit={"contain"}
             src={image}
           />

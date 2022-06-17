@@ -19,7 +19,7 @@ const NavbarLinks = () => {
           <Link to="/products" id="ca">Men</Link>
         </div>
         <div class="cat">
-          <Link to="/women" id="ca">Women</Link>
+          <Link to="/" id="ca">Women</Link>
         </div>
         <div class="cat">
           <Link to="/" id="ca">Accessories</Link>

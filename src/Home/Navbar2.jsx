@@ -11,6 +11,9 @@ import FullSignUp from "../Login/FullSignUp";
 import Products from "../Pages/Products";
 import Product from "../Pages/Product";
 import Women from "../Pages/Women";
+import BuyOrder from "../Components/BuyOrder";
+import OrderSuccess from "../Components/OrderSuccess";
+import WhishList from "../Components/WhishList";
 
 const Navbar2 = () => {
   return (
@@ -21,10 +24,13 @@ const Navbar2 = () => {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<SignUp />} />
         <Route path="/fullsignup" element={<FullSignUp />} />
+        <Route path="/wishList" element={<WhishList />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/:id" element={<Product />} />
-        <Route path="/women" element={<Women />} />
-        <Route path="/cart" element={<Cart />} />        
+        <Route path="/" element={<Women />} />
+        <Route path="/cart" element={<Cart />} />   
+        <Route path="/order" element={<BuyOrder />} />  
+        <Route path="/orderSuccess" element={<OrderSuccess />} />     
       </Routes>
     </div>
   );

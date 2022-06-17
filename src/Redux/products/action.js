@@ -147,10 +147,48 @@ const deleteProductCart = (id) => (dispatch) => {
     .catch((e) => dispatch(deleteProductCartFailure(e.data)));
 };
 
+const addOrderRequest = (payload) => {
+  return {
+    type: types.ADD_ORDER_REQUEST,
+    // payload,
+  };
+};
+
+const addOrderSuccess = (payload) => {
+  return {
+    type: types.ADD_ORDER_SUCCESS,
+    payload,
+  };
+};
+
+const addOrderFailure = (payload) => {
+  return {
+    type: types.ADD_ORDER_FAILURE,
+    payload,
+  };
+};
+
+const addOrder = (payload) => (dispatch) => {
+  dispatch(addOrderRequest());
+  const orderPayload = [];
+  for(let product of payload){
+    product && orderPayload.push(Axios.post('/orders', product))
+  }
+  Promise.all(orderPayload)
+  .then((r) => {
+    console.log(r)
+    dispatch(addOrderSuccess())
+  })
+  .catch((e) => dispatch(addOrderFailure()))
+}
+
+
+
 export {
   fetchData,
   getSingleProduct,
   addProductCart,
   fetchCart,
   deleteProductCart,
+  addOrder
 };

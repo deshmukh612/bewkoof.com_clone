@@ -740,7 +740,8 @@
       "count": 22
     }
   ],
-  "cart": [
+  "cart": [],
+  "orders": [
     {
       "id": 13,
       "categories": "kurta",

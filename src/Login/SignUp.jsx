@@ -18,7 +18,7 @@ const SignUp = () => {
 
   return (
     <div>
-      SignUp
+      
       <h1 className={styles.head}>Welcome to the world of Bewakoof!</h1>
       <div className={styles.box}>
         <div>

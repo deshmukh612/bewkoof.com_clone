@@ -49,7 +49,7 @@ const images = [
 const Main = () => {
   return (
     <div className={styles.container}>
-      Main
+      
       <Slider />
       <div className={styles.mid}>
         <img src="https://images.bewakoof.com/uploads/grid/app/desktop-tod-strip-men-1654149139.jpg" />

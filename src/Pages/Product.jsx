@@ -74,7 +74,7 @@ export default function Product() {
               fontWeight={300}
               fontSize={"2xl"}
             >
-              ${currentProduct.price}
+              ₹{currentProduct.price}
             </Text>
           </Box>
 
