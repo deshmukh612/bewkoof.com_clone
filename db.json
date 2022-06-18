@@ -740,7 +740,31 @@
       "count": 22
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": 14,
+      "categories": "tshirt",
+      "size": "Sizes : 39, 40, 42, 44...",
+      "title": "Men White & Navy Blue Pure Cotton Striped Polo Collar T-shirt",
+      "price": "359",
+      "gender": "men",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "description": "White and navy blue Tshirt for men",
+      "brand": "Mast & Harbour",
+      "color": "white",
+      "discount": 10,
+      "off_price": 899,
+      "image": "https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_210,c_limit,fl_progressive/assets/images/14350098/2021/6/18/8e12d936-e770-48d3-a285-b72c4c1c74391623996957697-Mast--Harbour-Men-Tshirts-3781623996957278-4.jpg",
+      "rating": 3.9,
+      "count": 29
+    }
+  ],
   "orders": [
     {
       "id": 13,
